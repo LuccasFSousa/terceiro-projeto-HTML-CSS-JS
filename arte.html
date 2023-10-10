@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Wikipedia</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/img/wikipedia.ico">
+    <script src="https://kit.fontawesome.com/452dd97282.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        nav {
+            width: 20%;
+            height: 100vh;
+            background-color: #f0f0f0;
+            padding: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        aside {
+            width: 20%;
+            height: 100vh;
+            background-color: #f0f0f0;
+            padding: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            right: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        ul.nav-links,
+        ul.aside-links {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul.nav-links li,
+        ul.aside-links li {
+            margin-bottom: 10px;
+        }
+
+        ul.nav-links a,
+        ul.aside-links a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        ul.nav-links a:hover,
+        ul.aside-links a:hover {
+            background-color: #ddd;
+        }
+
+        main {
+            width: 40%;
+            margin-left: 20%;
+            margin-right: 20%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content {
+            margin-bottom: 50px;
+            width: 590px;
+        }
+        .foto {
+            margin-left: 600px;
+            margin-top: -320px;
+            width: 235px;
+            height: 200px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        footer p {
+            color: #555;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        figcaption {
+            color: #777;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ccc;
+            padding: 5px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        .styled-table {
+            margin: 30px 0;
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .styled-table table {
+            width: 100%;
+            background-color: #f5f5f5;
+            border-collapse: collapse;
+            border-spacing: 0;
+            font-size: 1em;
+            font-family: sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .styled-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .styled-table th:first-child,
+        .styled-table td:first-child {
+            text-align: left;
+        }
+
+        .styled-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+            
+        }
+
+        .styled-table tbody tr:hover {
+            background-color: #ddd;
+        }
+        .social-media a {
+            color: #555; /* Cor dos ícones */
+            font-size: 24px; /* Tamanho dos ícones */
+            margin-right: 10px; /* Espaçamento entre os ícones (opcional) */
+        }
+
+        .social-media a:hover {
+            color: #000; /* Cor dos ícones ao passar o mouse */
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img class="mw-logo-icon" src="/assets/img/wikipedia1.png" alt="" aria-hidden="true" height="50" width="50">
+                <img class="mw-logo-wordmark" alt="Wikipédia" src="assets/img/wikipedia.svg" style="width: 7.5em; height: 1.125em;">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a style="border-top:5px solid;border-color:#999933;padding:1px 120px; width:11.1%;"></a><a href="arte.html" title="Portal:Arte">Arte</a></li>
+            <li><a style="border-top:5px solid;border-color:#0fe7e3;padding:1px 120px; width:11.1%;"><a href="tecnologia.html" title="Portal:Tecnologia">Tecnologia</a></li>
+                
+        </ul>
+    </nav>
+
+    <aside>
+        <ul class="aside-links">
+            <li><a href="#section1">Artes Visuais</a></li>
+            <li><a href="#section2">Artes Performáticas</a></li>
+            <li><a href="#section3">Artes Digitais</a></li>
+            <li><a href="#section4">Arquitetura & Urbanismo</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <div id="section1" class="content">
+            <h2>Artes Visuais</h2>
+            <p>As artes visuais abrangem diversas formas de expressão artística que podem ser percebidas principalmente através do sentido da visão. Isso inclui pintura, escultura, desenho, fotografia e outras formas de arte que criam obras visuais.</p>
+            <img class="foto" src="assets/img/artes visuais.avif" alt="Artes Visuais">
+        </div>
+        
+
+        <div id="section2" class="content">
+            <h2>Artes Performáticas</h2>
+            <p>As artes performáticas envolvem apresentações ao vivo, muitas vezes diante de uma plateia. Isso inclui teatro, dança, música, ópera, entre outras formas de arte que requerem uma performance ao vivo.</p>
+            <img class="foto" src="assets/img/artes-performaticas.png" alt="Artes Performáticas">
+        </div>
+        
+
+        <div id="section3" class="content">
+            <h2>Artes Digitais</h2>
+            <p>As artes digitais referem-se à criação artística que utiliza tecnologia digital como meio de expressão. Isso inclui arte em computador, animação digital, design gráfico, entre outras formas de arte que utilizam ferramentas digitais.</p>
+            <img class="foto" src="assets/img/artes-digitais.jpeg" alt="Artes Digitais">
+        </div>
+        
+
+        <div id="section4" class="content">
+            <h2>Arquitetura e Urbanismo</h2>
+            <p>A arquitetura e o urbanismo são formas de arte que envolvem o projeto e a construção de espaços habitáveis. Isso inclui a criação de edifícios, planejamento urbano, paisagismo e outras formas de design espacial.</p>
+            <img class="foto" src="assets/img/arquitetura.jpeg" alt="Arquitetura e Urbanismo">
+        </div>
+        
+        <div class="styled-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Nascimento</th>
+                        <th>Contribuição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Frank Lloyd Wright</td>
+                        <td>1867</td>
+                        <td>Arquiteto pioneiro do movimento moderno, conhecido por suas obras orgânicas e inovadoras.</td>
+                    </tr>
+                    <tr>
+                        <td>Oscar Niemeyer</td>
+                        <td>1907</td>
+                        <td>Arquiteto brasileiro famoso por seus projetos modernistas, incluindo a cidade de Brasília.</td>
+                    </tr>
+                    <tr>
+                        <td>Zaha Hadid</td>
+                        <td>1950</td>
+                        <td>Arquiteta iraquiana-britânica conhecida por suas formas inovadoras e arrojadas.</td>
+                    </tr>
+                    <tr>
+                        <td>Jan Gehl</td>
+                        <td>1936</td>
+                        <td>Urbanista dinamarquês, conhecido por promover cidades mais humanas e acessíveis para os pedestres.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <canvas id="rainCanvas" width="1050" height="100"></canvas>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+                <!-- Adicione mais ícones e links conforme necessário -->
+            </div>
+            <p>&copy; 2023 Lucas Sousa. Todos os direitos reservados.</p>
+            <p>Para entrar em contato, envie um e-mail para: lucas.ferrera@hotmail.com</p>
+        </div>
+    </footer>
+</body>
+
+</html>

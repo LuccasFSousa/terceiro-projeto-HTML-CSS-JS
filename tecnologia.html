@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Wikipedia</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/img/wikipedia.ico">
+    <script src="https://kit.fontawesome.com/452dd97282.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        nav {
+            width: 20%;
+            height: 100vh;
+            background-color: #f0f0f0;
+            padding: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        aside {
+            width: 20%;
+            height: 100vh;
+            background-color: #f0f0f0;
+            padding: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            right: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        ul.nav-links,
+        ul.aside-links {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul.nav-links li,
+        ul.aside-links li {
+            margin-bottom: 10px;
+        }
+
+        ul.nav-links a,
+        ul.aside-links a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        ul.nav-links a:hover,
+        ul.aside-links a:hover {
+            background-color: #ddd;
+        }
+
+        main {
+            width: 40%;
+            margin-left: 20%;
+            margin-right: 20%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content {
+            margin-bottom: 50px;
+            width: 590px;
+        }
+        .foto {
+            margin-left: 620px;
+            margin-top: -320px;
+            width: 200px;
+            height: 200px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        footer p {
+            color: #555;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        figcaption {
+            color: #777;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ccc;
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        canvas#circlesCanvas {
+            border: 2px solid black;
+            display: block;
+            margin: auto;
+        }
+
+        .styled-table {
+            margin: 20px 0;
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .styled-table table {
+            width: 100%;
+            background-color: #f5f5f5;
+            border-collapse: collapse;
+            border-spacing: 0;
+            font-size: 1em;
+            font-family: sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .styled-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .styled-table th:first-child,
+        .styled-table td:first-child {
+            text-align: left;
+        }
+
+        .styled-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+            
+        }
+
+        .styled-table tbody tr:hover {
+            background-color: #ddd;
+        }
+
+        .social-media a {
+            color: #555; /* Cor dos ícones */
+            font-size: 24px; /* Tamanho dos ícones */
+            margin-right: 10px; /* Espaçamento entre os ícones (opcional) */
+        }
+
+        .social-media a:hover {
+            color: #000; /* Cor dos ícones ao passar o mouse */
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img class="mw-logo-icon" src="/assets/img/wikipedia1.png" alt="" aria-hidden="true" height="50" width="50">
+                <img class="mw-logo-wordmark" alt="Wikipédia" src="assets/img/wikipedia.svg" style="width: 7.5em; height: 1.125em;">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a style="border-top:5px solid;border-color:#999933;padding:1px 120px; width:11.1%;"></a><a href="arte.html" title="Portal:Arte">Arte</a></li>
+           <li><a style="border-top:5px solid;border-color:#0fe7e3;padding:1px 120px; width:11.1%;"><a href="tecnologia.html" title="Portal:Tecnologia">Tecnologia</a></li>
+                
+        </ul>
+    </nav>
+
+    <aside>
+        <ul class="aside-links">
+            <li><a href="#section1">Tecnologia</a></li>
+            <li><a href="#section2">Apple</a></li>
+            <li><a href="#section3">Windows</a></li>
+            <li><a href="#section4">Google</a></li>
+            <li><a href="#section5">Amazon</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <canvas id="jumpingTextCanvas" width="900" height="100"></canvas>
+        <div id="section1" class="content">
+            <h2>Tecnologia</h2>
+            <p>Tecnologia é o conjunto de técnicas, habilidades, métodos e processos utilizados na produção de bens e serviços, bem como na realização de atividades industriais, comerciais e culturais. Ela está em constante evolução e desempenha um papel crucial na sociedade moderna.</p>
+            <img class="foto" src="assets/img/tecnologia.jpeg" alt="Tecnologia">
+        </div>
+        
+        <div id="section2" class="content">
+            <h2>Apple</h2>
+            <p>A Apple Inc. é uma empresa multinacional de tecnologia sediada nos Estados Unidos, conhecida por seus produtos inovadores, como o iPhone, iPad, Mac e muito mais. Fundada por Steve Jobs, Steve Wozniak e Ronald Wayne, a Apple revolucionou a indústria de tecnologia.</p>
+            <img class="foto" src="assets/img/apple.jpg" alt="Apple">
+        </div>
+        
+        <div id="section3" class="content">
+            <h2>Windows</h2>
+            <p>O Windows é um sistema operacional desenvolvido pela Microsoft. É um dos sistemas operacionais mais populares do mundo e está presente em uma ampla variedade de dispositivos, desde computadores pessoais até servidores.</p>
+            <img class="foto" src="assets/img/windows.jpeg" alt="Windows">
+        </div>
+        
+        <div id="section4" class="content">
+            <h2>Google</h2>
+            <p>O Google é uma empresa de tecnologia conhecida principalmente pelo seu mecanismo de busca, mas também oferece uma ampla gama de serviços e produtos, incluindo o Android, Gmail, Google Drive e muito mais.</p>
+            <img class="foto" src="assets/img/google.jpeg" alt="Google">
+        </div>
+        
+        <div id="section5" class="content">
+            <h2>Amazon</h2>
+            <p>A Amazon é uma empresa multinacional de comércio eletrônico e tecnologia sediada nos Estados Unidos. Fundada por Jeff Bezos, a Amazon é uma das maiores varejistas online do mundo e também oferece serviços de computação em nuvem, streaming de vídeo e muito mais.</p>
+            <img class="foto" src="assets/img/amazon.jpeg" alt="Amazon">
+        </div>
+        
+        <div class="styled-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Fundação</th>
+                        <th>Áreas de Atuação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apple</td>
+                        <td>1976</td>
+                        <td>Tecnologia, Eletrônicos, Software</td>
+                    </tr>
+                    <tr>
+                        <td>Windows (Microsoft)</td>
+                        <td>1975</td>
+                        <td>Software, Hardware, Serviços de TI</td>
+                    </tr>
+                    <tr>
+                        <td>Google</td>
+                        <td>1998</td>
+                        <td>Pesquisa Online, Publicidade, Tecnologia</td>
+                    </tr>
+                    <tr>
+                        <td>Amazon</td>
+                        <td>1994</td>
+                        <td>Comércio Eletrônico, Computação em Nuvem, Entretenimento</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <canvas id="rainCanvas" width="1050" height="100"></canvas>
+        
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+                <!-- Adicione mais ícones e links conforme necessário -->
+            </div>
+            <p>&copy; 2023 Lucas Sousa. Todos os direitos reservados.</p>
+            <p>Para entrar em contato, envie um e-mail para: lucas.ferrera@hotmail.com</p>
+        </div>
+    </footer>
+
+    <!--Cancas Chuva-->
+    <script>
+        const rainCanvas = document.getElementById('rainCanvas');
+        const rainCtx = rainCanvas.getContext('2d');
+        const numDrops = 100;
+
+        const drops = [];
+
+        function randomIntFromRange(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function Drop(x, y, length, thickness, speed) {
+            this.x = x;
+            this.y = y;
+            this.length = length;
+            this.thickness = thickness;
+            this.speed = speed;
+
+            this.update = function() {
+                this.y += this.speed;
+
+                if (this.y > rainCanvas.height) {
+                    this.y = -this.length;
+                }
+            }
+
+            this.draw = function() {
+                rainCtx.beginPath();
+                rainCtx.moveTo(this.x, this.y);
+                rainCtx.lineTo(this.x, this.y + this.length);
+                rainCtx.lineWidth = this.thickness;
+                rainCtx.strokeStyle = '#0095DD';
+                rainCtx.stroke();
+                rainCtx.closePath();
+            }
+        }
+
+        for (let i = 0; i < numDrops; i++) {
+            const x = randomIntFromRange(0, rainCanvas.width);
+            const y = randomIntFromRange(0, rainCanvas.height);
+            const length = randomIntFromRange(10, 30);
+            const thickness = Math.random() * 1;
+            const speed = randomIntFromRange(3, 10);
+
+            drops.push(new Drop(x, y, length, thickness, speed));
+        }
+
+        function animateRain() {
+            rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
+
+            for (let i = 0; i < drops.length; i++) {
+                drops[i].update();
+                drops[i].draw();
+            }
+
+            requestAnimationFrame(animateRain);
+        }
+
+        animateRain();
+    </script>
+   
+</body>
+
+</html>

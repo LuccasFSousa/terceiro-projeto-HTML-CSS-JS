@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Wikipedia</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/img/wikipedia.ico">
+    <script src="https://kit.fontawesome.com/452dd97282.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        nav {
+            width: 20%;
+            height: 100vh;
+            background-color: #f0f0f0;
+            padding: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        aside {
+            width: 20%;
+            height: 100vh;
+            background-color: #f0f0f0;
+            padding: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            right: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        ul.nav-links,
+        ul.aside-links {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul.nav-links li,
+        ul.aside-links li {
+            margin-bottom: 10px;
+        }
+
+        ul.nav-links a,
+        ul.aside-links a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        ul.nav-links a:hover,
+        ul.aside-links a:hover {
+            background-color: #ddd;
+        }
+
+        main {
+            width: 40%;
+            margin-left: 20%;
+            margin-right: 20%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content {
+            margin-bottom: 50px;
+            width: 590px;
+        }
+        .foto {
+            margin-left: 620px;
+            margin-top: -320px;
+            width: 200px;
+            height: 200px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        footer p {
+            color: #555;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        figcaption {
+            color: #777;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ccc;
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        canvas#circlesCanvas {
+            border: 2px solid black;
+            display: block;
+            margin: auto;
+        }
+
+        .styled-table {
+            margin: 20px 0;
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .styled-table table {
+            width: 100%;
+            background-color: #f5f5f5;
+            border-collapse: collapse;
+            border-spacing: 0;
+            font-size: 1em;
+            font-family: sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .styled-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .styled-table th:first-child,
+        .styled-table td:first-child {
+            text-align: left;
+        }
+
+        .styled-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+            
+        }
+
+        .styled-table tbody tr:hover {
+            background-color: #ddd;
+        }
+        
+        .social-media a {
+            color: #555; /* Cor dos ícones */
+            font-size: 24px; /* Tamanho dos ícones */
+            margin-right: 10px; /* Espaçamento entre os ícones (opcional) */
+        }
+
+        .social-media a:hover {
+            color: #000; /* Cor dos ícones ao passar o mouse */
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img class="mw-logo-icon" src="/assets/img/wikipedia1.png" alt="" aria-hidden="true" height="50" width="50">
+                <img class="mw-logo-wordmark" alt="Wikipédia" src="assets/img/wikipedia.svg" style="width: 7.5em; height: 1.125em;">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a style="border-top:5px solid;border-color:#999933;padding:1px 120px; width:11.1%;"></a><a href="arte.html" title="Portal:Arte">Arte</a></li>
+            <li><a style="border-top:5px solid;border-color:#0fe7e3;padding:1px 120px; width:11.1%;"><a href="tecnologia.html" title="Portal:Tecnologia">Tecnologia</a></li>
+                
+        </ul>
+    </nav>
+
+    <aside>
+        <ul class="aside-links">
+            <li><a href="#section1">Portal da Arte</a></li>
+            <li><a href="#section2">Portal de Biografias</a></li>
+            <li><a href="#section3">Portal Ciência</a></li>
+            <li><a href="#section4">Portal da Filosofia</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <canvas id="jumpingTextCanvas" width="900" height="100"></canvas>
+        <h1>Página Principal</h1>
+        <div id="section1" class="content">
+            <h2>Portal da Arte</h2>
+            <!-- Seu conteúdo aqui -->
+            
+            <p>Arte (do latim ars, significando técnica e/ou habilidade) pode ser entendida como a atividade humana ligada às manifestações de ordem estética ou comunicativa, realizada por meio de uma grande variedade de linguagens, tais como: artes visuais como, o desenho, escultura, pintura, a fotografia música, dança, teatro e cinema, em suas variadas combinações. O processo criativo se dá a partir da percepção com o intuito de expressar emoções e ideias, objetivando um significado único e diferente para cada obra.
+            </p>
+            <span title="&quot;Filosofia&quot;, mural de Robert Lewis Reid">
+                <img class="foto" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Francois-Joseph_Heim_001b.jpg/200px-Francois-Joseph_Heim_001b.jpg" decoding="async" width="200" height="129" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Francois-Joseph_Heim_001b.jpg/300px-Francois-Joseph_Heim_001b.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Francois-Joseph_Heim_001b.jpg/400px-Francois-Joseph_Heim_001b.jpg 2x" data-file-width="850" data-file-height="548">
+            </span>
+            <div class="styled-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Artista</th>
+                            <th>Estilo</th>
+                            <th>Obras Notáveis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Leonardo da Vinci</td>
+                            <td>Renascimento</td>
+                            <td>Mona Lisa, A Última Ceia</td>
+                        </tr>
+                        <tr>
+                            <td>Pablo Picasso</td>
+                            <td>Cubismo</td>
+                            <td>Les Demoiselles d'Avignon, Guernica</td>
+                        </tr>
+                        <tr>
+                            <td>Vincent van Gogh</td>
+                            <td>Pós-Impressionismo</td>
+                            <td>A Noite Estrelada, Girassóis</td>
+                        </tr>
+                        <tr>
+                            <td>Frida Kahlo</td>
+                            <td>Surrealismo</td>
+                            <td>As Duas Fridas, Autorretrato com Colar de Espinhos e Beija-flor</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="section2" class="content">
+            <h2>Portal de Biografias</h2>
+            <!-- Seu conteúdo aqui -->
+            <p>Nicholas Rodney Drake (Rangum, 19 de junho de 1948 — 25 de novembro de 1974), conhecido como Nick Drake, foi um cantor e compositor britânico, nascido na antiga Birmânia. A origem deve-se ao trabalho do pai: quando tinha quatro anos, a família de Nick mudou-se de volta para Inglaterra.</p>
+            <img class="foto" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Aldrin_Apollo_11.jpg/270px-Aldrin_Apollo_11.jpg" decoding="async" width="270" height="270" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Aldrin_Apollo_11.jpg/405px-Aldrin_Apollo_11.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Aldrin_Apollo_11.jpg/540px-Aldrin_Apollo_11.jpg 2x" data-file-width="2700" data-file-height="2700">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dI2EeciyOI8?si=2J5346anixMo9fu7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <div id="section3" class="content">
+            <h2>Portal Ciência</h2>
+            <!-- Seu conteúdo aqui -->
+            <p>No seu sentido mais amplo, ciência (do Latim scientia, significando "conhecimento") refere-se a qualquer conhecimento ou prática sistemático. Num sentido mais restrito, ciência refere-se a um sistema de adquirir conhecimento baseado no método científico, assim como ao corpo organizado de conhecimento conseguido através de tal pesquisa. Este artigo foca o sentido mais restrito da palavra. A ciência tal como é discutida neste artigo é muitas vezes referida como ciência experimental para diferencia-la da ciência aplicada, que é a aplicação da pesquisa científica a necessidades humanas específicas, embora as duas estejam regularmente interconectadas.</p>
+            <canvas id="moleculeCanvas" width="600" height="300"></canvas>
+        </div>
+
+        <div id="section4" class="content">
+            <h2>Portal da Filosofia</h2>
+            <!-- Seu conteúdo aqui -->
+            <p>Filosofia (φιλοσοφία) é uma palavra que deriva do grego e resulta da união de outras duas palavras: philia (φιλία), que significa "amizade", "amor" e "sophia" (σοφία), que significa "sabedoria", ou simplesmente "saber". De "sophia" decorre a palavra "sophos" (σοφός), que significa "sábio", "instruído". Assim, o "filósofo" seria aquele que ama e busca "a sabedoria"; que é "amigo da sabedoria".
+                A tradição atribui ao filósofo Pitágoras de Samos a criação da palavra. São muitas, entretanto, as discussões sobre sua definição e seu objeto específico.</p>
+                <img class="foto" alt="&quot;Filosofia&quot;, mural de Robert Lewis Reid" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Philosophy-Reid-Highsmith.jpeg/200px-Philosophy-Reid-Highsmith.jpeg" decoding="async" width="200" height="204" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Philosophy-Reid-Highsmith.jpeg/300px-Philosophy-Reid-Highsmith.jpeg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Philosophy-Reid-Highsmith.jpeg/400px-Philosophy-Reid-Highsmith.jpeg 2x" data-file-width="1192" data-file-height="1214">
+        </div>
+        <div class="styled-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Nascimento</th>
+                        <th>Contribuição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Platão</td>
+                        <td>427 a.C.</td>
+                        <td>Teoria das Ideias</td>
+                    </tr>
+                    <tr>
+                        <td>Aristóteles</td>
+                        <td>384 a.C.</td>
+                        <td>Lógica e Ética</td>
+                    </tr>
+                    <tr>
+                        <td>Sócrates</td>
+                        <td>469 a.C.</td>
+                        <td>Método Socrático</td>
+                    </tr>
+                    <tr>
+                        <td>Immanuel Kant</td>
+                        <td>1724</td>
+                        <td>Crítica da Razão Pura</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <canvas id="rainCanvas" width="1050" height="100"></canvas>
+        
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+                <!-- Adicione mais ícones e links conforme necessário -->
+            </div>
+            <p>&copy; 2023 Lucas Sousa. Todos os direitos reservados.</p>
+            <p>Para entrar em contato, envie um e-mail para: lucas.ferrera@hotmail.com</p>
+        </div>
+    </footer>
+
+    <!--Cancas Chuva-->
+    <script>
+        const rainCanvas = document.getElementById('rainCanvas');
+        const rainCtx = rainCanvas.getContext('2d');
+        const numDrops = 100;
+
+        const drops = [];
+
+        function randomIntFromRange(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function Drop(x, y, length, thickness, speed) {
+            this.x = x;
+            this.y = y;
+            this.length = length;
+            this.thickness = thickness;
+            this.speed = speed;
+
+            this.update = function() {
+                this.y += this.speed;
+
+                if (this.y > rainCanvas.height) {
+                    this.y = -this.length;
+                }
+            }
+
+            this.draw = function() {
+                rainCtx.beginPath();
+                rainCtx.moveTo(this.x, this.y);
+                rainCtx.lineTo(this.x, this.y + this.length);
+                rainCtx.lineWidth = this.thickness;
+                rainCtx.strokeStyle = '#0095DD';
+                rainCtx.stroke();
+                rainCtx.closePath();
+            }
+        }
+
+        for (let i = 0; i < numDrops; i++) {
+            const x = randomIntFromRange(0, rainCanvas.width);
+            const y = randomIntFromRange(0, rainCanvas.height);
+            const length = randomIntFromRange(10, 30);
+            const thickness = Math.random() * 1;
+            const speed = randomIntFromRange(3, 10);
+
+            drops.push(new Drop(x, y, length, thickness, speed));
+        }
+
+        function animateRain() {
+            rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
+
+            for (let i = 0; i < drops.length; i++) {
+                drops[i].update();
+                drops[i].draw();
+            }
+
+            requestAnimationFrame(animateRain);
+        }
+
+        animateRain();
+    </script>
+    <!--Canvas Moléculas-->
+    <script>
+        const moleculeCanvas = document.getElementById('moleculeCanvas');
+        const moleculeCtx = moleculeCanvas.getContext('2d');
+    
+        const numMolecules = 50;
+        const molecules = [];
+    
+        function randomIntFromRange(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+    
+        function Molecule(x, y, radius, color, velocity) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.color = color;
+            this.velocity = {
+                x: velocity.x,
+                y: velocity.y
+            };
+    
+            this.update = function() {
+                this.x += this.velocity.x;
+                this.y += this.velocity.y;
+    
+                if (this.x - this.radius <= 0 || this.x + this.radius >= moleculeCanvas.width) {
+                    this.velocity.x = -this.velocity.x;
+                }
+    
+                if (this.y - this.radius <= 0 || this.y + this.radius >= moleculeCanvas.height) {
+                    this.velocity.y = -this.velocity.y;
+                }
+    
+                // Adicionando colisões entre moléculas
+                molecules.forEach(molecule => {
+                    if (this !== molecule) {
+                        const distance = Math.hypot(this.x - molecule.x, this.y - molecule.y);
+    
+                        if (distance - this.radius - molecule.radius < 0) {
+                            // Trocar velocidades para simular uma colisão elástica
+                            [this.velocity.x, molecule.velocity.x] = [molecule.velocity.x, this.velocity.x];
+                            [this.velocity.y, molecule.velocity.y] = [molecule.velocity.y, this.velocity.y];
+                        }
+                    }
+                });
+            }
+    
+            this.draw = function() {
+                moleculeCtx.beginPath();
+                moleculeCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                moleculeCtx.fillStyle = this.color;
+                moleculeCtx.fill();
+                moleculeCtx.closePath();
+            }
+        }
+    
+        for (let i = 0; i < numMolecules; i++) {
+            const radius = randomIntFromRange(5, 20);
+            const x = randomIntFromRange(radius, moleculeCanvas.width - radius);
+            const y = randomIntFromRange(radius, moleculeCanvas.height - radius);
+            const color = `rgba(${randomIntFromRange(0, 255)}, ${randomIntFromRange(0, 255)}, ${randomIntFromRange(0, 255)}, 0.8)`;
+            const velocity = {
+                x: (Math.random() - 0.5) * 1, // Valor entre -1 e 1
+                y: (Math.random() - 0.5) * 0.7  // Valor entre -1 e 1
+            };
+    
+            molecules.push(new Molecule(x, y, radius, color, velocity));
+        }
+    
+        function animateMolecules() {
+            moleculeCtx.clearRect(0, 0, moleculeCanvas.width, moleculeCanvas.height);
+    
+            for (let i = 0; i < molecules.length; i++) {
+                molecules[i].update();
+                molecules[i].draw();
+            }
+    
+            requestAnimationFrame(animateMolecules);
+        }
+    
+        animateMolecules();
+    </script>
+    <!--Canvas Boas Vindas-->
+    <script>
+        const welcomeHeading = document.getElementById('welcomeHeading');
+        const jumpingTextCanvas = document.getElementById('jumpingTextCanvas');
+        const jumpingTextCtx = jumpingTextCanvas.getContext('2d');
+    
+        const text = "Boas vindas ao Novo Wikipédia";
+        let jumpFrames = 60;
+        let currentFrame = 0;
+    
+        const fontSize = 40;
+        const letterSpacing = 8;
+    
+        function drawText(x) {
+            jumpingTextCtx.clearRect(0, 0, jumpingTextCanvas.width, jumpingTextCanvas.height);
+            jumpingTextCtx.font = `${fontSize}px Arial`;
+            jumpingTextCtx.fillStyle = 'black';
+            jumpingTextCtx.fillText(text, x, fontSize);
+        }
+    
+        function animateText() {
+            currentFrame = (currentFrame + 1) % jumpFrames;
+            const jumpDistance = Math.sin((currentFrame / jumpFrames) * Math.PI) * 10;
+    
+            drawText(jumpDistance);
+    
+            requestAnimationFrame(animateText);
+        }
+    
+        animateText();
+    </script>
+</body>
+
+</html>
